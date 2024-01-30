@@ -1,0 +1,70 @@
+"""# GET ALL FIXTURES"""
+
+from google.cloud import storage
+import http.client
+import json
+import time
+from google.oauth2 import service_account
+
+# Carregar as credenciais do arquivo JSON
+credentials = service_account.Credentials.from_service_account_file('account_service_key.json')
+
+# Criar uma instância do cliente de armazenamento do Google Cloud
+client = storage.Client(credentials=credentials)
+
+conn = http.client.HTTPSConnection("api-football-v1.p.rapidapi.com")
+
+headers = {
+    'X-RapidAPI-Key': "19ad2b4577msh301c3eb5c5bd419p1e9b59jsn500b7096975e",
+    'X-RapidAPI-Host': "api-football-v1.p.rapidapi.com"
+}
+
+# Lista com os 380 IDs
+ids = [837991,	837992,	837993,	837994,	837995,	837996,	837997,	837998,	837999,	838000,	838001,	838002,	838003,	838004,	838005,	838006,	838007,	838008,	838009,	838010,	838011,	838012,	838013,	838014,	838015,	838016,	838017,	838018,	838019,	838020,	838021,	838022,	838023,	838024,	838025,	838026,	838027,	838028,	838029,	838030,	838031,	838032,	838033,	838034,	838035,	838036,	838037,	838038,	838039,	838040,	838041,	838042,	838043,	838044,	838045,	838046,	838047,	838048,	838049,	838050,	838051,	838052,	838053,	838054,	838055,	838056,	838057,	838058,	838059,	838060,	838061,	838062,	838063,	838064,	838065,	838066,	838067,	838068,	838069,	838070,	838071,	838072,	838073,	838074,	838075,	838076,	838077,	838078,	838079,	838080,	838081,	838082,	838083,	838084,	838085,	838086,	838087,	838088,	838089,	838090,	838091,	838092,	838093,	838094,	838095,	838096,	838097,	838098,	838099,	838100,	838101,	838102,	838103,	838104,	838105,	838106,	838107,	838108,	838109,	838110,	838111,	838112,	838113,	838114,	838115,	838116,	838117,	838118,	838119,	838120,	838121,	838122,	838123,	838124,	838125,	838126,	838127,	838128,	838129,	838130,	838131,	838132,	838133,	838134,	838135,	838136,	838137,	838138,	838139,	838140,	838141,	838142,	838143,	838144,	838145,	838146,	838147,	838148,	838149,	838150,	838151,	838152,	838153,	838154,	838155,	838156,	838157,	838158,	838159,	838160,	838161,	838162,	838163,	838164,	838165,	838166,	838167,	838168,	838169,	838170,	838171,	838172,	838173,	838174,	838175,	838176,	838177,	838178,	838179,	838180,	838181,	838182,	838183,	838184,	838185,	838186,	838187,	838188,	838189,	838190,	838191,	838192,	838193,	838194,	838195,	838196,	838197,	838198,	838199,	838200,	838201,	838202,	838203,	838204,	838205,	838206,	838207,	838208,	838209,	838210,	838211,	838212,	838213,	838214,	838215,	838216,	838217,	838218,	838219,	838220,	838221,	838222,	838223,	838224,	838225,	838226,	838227,	838228,	838229,	838230,	838231,	838232,	838233,	838234,	838235,	838236,	838237,	838238,	838239,	838240,	838241,	838242,	838243,	838244,	838245,	838246,	838247,	838248,	838249,	838250,	838251,	838252,	838253,	838254,	838255,	838256,	838257,	838258,	838259,	838260,	838261,	838262,	838263,	838264,	838265,	838266,	838267,	838268,	838269,	838270,	838271,	838272,	838273,	838274,	838275,	838276,	838277,	838278,	838279,	838280,	838281,	838282,	838283,	838284,	838285,	838286,	838287,	838288,	838289,	838290,	838291,	838292,	838293,	838294,	838295,	838296,	838297,	838298,	838299,	838300,	838301,	838302,	838303,	838304,	838305,	838306,	838307,	838308,	838309,	838310,	838311,	838312,	838313,	838314,	838315,	838316,	838317,	838318,	838319,	838320,	838321,	838322,	838323,	838324,	838325,	838326,	838327,	838328,	838329,	838330,	838331,	838332,	838333,	838334,	838335,	838336,	838337,	838338,	838339,	838340,	838341,	838342,	838343,	838344,	838345,	838346,	838347,	838348,	838349,	838350,	838351,	838352,	838353,	838354,	838355,	838356,	838357,	838358,	838359,	838360,	838361,	838362,	838363,	838364,	838365,	838366,	838367,	838368,	838369,	838370]  # Substitua pelos seus próprios IDs
+
+# Criar uma lista para armazenar os dados das respostas
+api_responses = []
+
+# Contador de requisições
+request_counter = 0
+
+# Iterar sobre os IDs e fazer as solicitações à API
+for id in ids:
+    conn.request("GET", f"/v3/fixtures?id={id}", headers=headers)
+    res = conn.getresponse()
+    data = res.read()
+
+    # Decodificar a resposta em formato JSON
+    json_data = json.loads(data.decode("utf-8"))
+
+    # Adicionar a resposta à lista
+    api_responses.append(json_data)
+
+    # Incrementar o contador de requisições
+    request_counter += 1
+
+    # Imprimir os valores dos 10 IDs lidos
+    if request_counter % 10 == 0:
+        print(f"Valores dos 10 IDs lidos: {api_responses[-10:]}")
+        print(f"Tamanho de cada arquivo: {[len(json.dumps(response)) for response in api_responses[-10:]]}")
+
+        print("Atingiu o limite de 10 requisições. Pausando por 1 minuto...")
+        time.sleep(60)  # Pausa de 1 minuto (60 segundos)
+
+# Nome do bucket e arquivo
+bucket_name = 'fut_bucket'
+file_name = 'api_responses.json'
+
+# Acessar o bucket
+bucket = client.get_bucket(bucket_name)
+
+# Criar um novo arquivo no Google Cloud Storage
+blob = bucket.blob(file_name)
+
+# Converter os dados para formato JSON
+json_data = json.dumps(api_responses)
+
+# Carregar os dados no arquivo do bucket
+blob.upload_from_string(json_data, content_type='application/json')
+
+print("Respostas da API salvas no bucket com sucesso!")
