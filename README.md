@@ -6,3 +6,15 @@
   
 ---
 
+O sistema completo de scrapping foi divido em vários pequenos códigos para facilitar a leitura e sua sequencia será listada abaixo:
+
+  1. import.py --> bibliotecas que foram utilizadas para esse projeto.
+  2. lista-ids-fbref.py --> recuperar os ids dos atletas que é utilizado para identificar as informações de cada atleta individualmente.
+  3. teste-scrapping.py --> código construído para testar o scrapping dos dados para um atleta.
+  4. sleep.py --> função construída por respeito a política do site.
+  5. scrapping-passing.py --> exemplo de uma pagina que foi recuperada de forma independente em um json.
+  6. verificar-ids.py --> função construída para verificar se algum id voltou vazio.
+  7. csv-converter.py - código para transformar os arquivos json em csv.
+
+---
+
