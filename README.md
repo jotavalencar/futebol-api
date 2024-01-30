@@ -5,6 +5,7 @@
   <p>O fator determinante foi a parceria do site com outros grandes veículos do mercado de dados esportivos, destacam-se os dados do projeto Opa da Stats Perform para dados avançados.</p>
   
 ---
+#### Data Engeneering (data) - Processo para recuperar os dados e salvar como um arquivo excel.
 
 O sistema completo de scrapping foi divido em vários pequenos códigos para facilitar a leitura e sua sequencia será listada abaixo:
 
@@ -16,5 +17,6 @@ O sistema completo de scrapping foi divido em vários pequenos códigos para fac
   6. verificar-ids.py --> função construída para verificar se algum id voltou vazio.
   7. csv-converter.py - código para transformar os arquivos json em csv.
 
----
+--- Data Science (stats) - Análise estatistica construída para 
+
 
