@@ -14,3 +14,5 @@ from sklearn.decomposition import PCA
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import pairwise_distances_argmin_min
+import matplotlib.cm as cm
+from sklearn.metrics import silhouette_samples, silhouette_score
