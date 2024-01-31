@@ -2,7 +2,9 @@
 
 <p>O site foi escolhido por dispor de informações públicas relevantes e confiáveis a título de comparação com outras alterativas no mercado e pertence ao grupo Sports Reference.</p>
 
-  <p>O fator determinante foi a parceria do site com outros grandes veículos do mercado de dados esportivos, destacam-se os dados do projeto Opa da Stats Perform para dados avançados.</p>
+<p>O fator determinante foi a parceria do site com outros grandes veículos do mercado de dados esportivos, destacam-se os dados do projeto Opa da Stats Perform para dados avançados.</p>
+
+<p> O objetivo final desse projeto é demonstrar uma solução de scrapping + uma analise multivariada de cluster como parte da minha evolução pessoal em analise e ciencia e dados. </p>
   
 ---
 #### Data Engeneering (data) - Processo para recuperar os dados e salvar como um arquivo excel.
@@ -17,6 +19,6 @@ O sistema completo de scrapping foi divido em vários pequenos códigos para fac
   6. verificar-ids.py --> função construída para verificar se algum id voltou vazio.
   7. csv-converter.py - código para transformar os arquivos json em csv.
 
---- Data Science (stats) - Análise estatistica construída para 
+--- Data Science (stats) - Análise estatistica construída 
 
 
