@@ -8,7 +8,9 @@ Original file is located at
 """
 
 import pandas as pd
-from sklearn.cluster import KMeans
-import matplotlib.pyplot as plt
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
 import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
+from sklearn.metrics import pairwise_distances_argmin_min
