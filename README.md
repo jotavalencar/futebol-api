@@ -1,13 +1,24 @@
-# football-data-solitions
-football data recovery and analysis techniques
+## WebScrapping site FBREF 
 
-[PT]
-Olá, convido voces para acessarem e navegarem em meus projetos nesse porfólio dedicado aos meus estudos e implementações de soluções para o futebol. 
-Os projetos estão divididos por blocos de aprendizados que fui incorporando ao longo do tempo.
-Meu objetivo é aproveitar a oportunidade para aprensentar meus métodos de trabalho e interagir com a comunidade sempre em busca de melhoria.
+<p>O site foi escolhido por dispor de informações públicas relevantes e confiáveis a título de comparação com outras alterativas no mercado e pertence ao grupo Sports Reference.</p>
 
---------------
-[EN]
-Hello, I invite you to access and browse my projects in this portfolio dedicated to my studies and implementations of solutions for football.
-The projects are divided into learning blocks that I have incorporated over time.
-My goal is to take the opportunity to present my work methods and interact with the community, always looking for improvement.
+<p>O fator determinante foi a parceria do site com outros grandes veículos do mercado de dados esportivos, destacam-se os dados do projeto Opa da Stats Perform para dados avançados.</p>
+
+<p> O objetivo final desse projeto é demonstrar uma solução de scrapping + uma analise multivariada de cluster como parte da minha evolução pessoal em analise e ciencia e dados. </p>
+  
+---
+#### Data Engeneering (data) - Processo para recuperar os dados e salvar como um arquivo excel.
+
+O sistema completo de scrapping foi divido em vários pequenos códigos para facilitar a leitura e sua sequencia será listada abaixo:
+
+  1. import.py --> bibliotecas que foram utilizadas para esse projeto.
+  2. lista-ids-fbref.py --> recuperar os ids dos atletas que é utilizado para identificar as informações de cada atleta individualmente.
+  3. teste-scrapping.py --> código construído para testar o scrapping dos dados para um atleta.
+  4. sleep.py --> função construída por respeito a política do site.
+  5. scrapping-passing.py --> exemplo de uma pagina que foi recuperada de forma independente em um json.
+  6. verificar-ids.py --> função construída para verificar se algum id voltou vazio.
+  7. csv-converter.py - código para transformar os arquivos json em csv.
+
+--- Data Science (stats) - Análise estatistica construída 
+
+
